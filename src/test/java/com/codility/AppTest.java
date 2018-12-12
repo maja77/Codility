@@ -2,6 +2,7 @@ package com.codility;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 
@@ -46,4 +47,37 @@ public class AppTest {
         assertEquals(6, Lesson4.missingInteger(new int[]{-1000000,1,2,3,4,5}));
     }
     // --------------------------------------------------------------------------------------------------------------
+
+    // Lesson 5 tests:  Prefix sums
+
+    @Test
+    public void testPCexample() {
+       assertEquals(5, Lesson5.passingCars(new int[] {0,1,0,1,1}));
+    }
+
+    @Test
+    public void testPCsingle() {
+        assertEquals(0, Lesson5.passingCars(new int[] {0}));
+        assertEquals(0, Lesson5.passingCars(new int[] {1}));
+    }
+
+    @Test
+    public void testPConeDirection() {
+        assertEquals(0, Lesson5.passingCars(new int[] {0,0,0,0,0,0}));
+        assertEquals(0, Lesson5.passingCars(new int[] {1,1,1,1,1,1}));
+    }
+
+    @Test
+    public void testPCsingleOneDirection() {
+        assertEquals(3, Lesson5.passingCars(new int[] {0,0,0,1,0,0}));
+        assertEquals(2, Lesson5.passingCars(new int[] {1,1,1,0,1,1}));
+    }
+
+    //TODO how to write this testcase better? That passingCars function is returning exactly -1 without creating so big testArray?
+    @Test
+    public void testPCmax() {
+        int[] testArray = new int[1000000001];
+        testArray[1000000000] = 1;
+        assertEquals(-1, Lesson5.passingCars(testArray));
+    }
 }
